@@ -9,24 +9,214 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- Image-->
+    <link rel="icon" type="image/png" sizes="16x16"  href="{{ asset('assets/images/favicon.png') }}" >
+
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/myscript.js') }}" defer></script>
+  {{--  <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+    <script type="text/javascript"  src="{{ asset('js/myscript.js') }}" defer></script>
+    <script type="text/javascript"  src="{{ asset('js/waves.js') }}" defer></script>
+    <script type="text/javascript"  src="{{ asset('js/jquery.ui.touch-punch-improved.js') }}" defer></script>
+    <script type="text/javascript"  src="{{ asset('js/jquery-ui.min.js') }}" defer></script>
+    <script type="text/javascript"  src="{{ asset('js/sidebarmenu.js') }}" defer></script>
+    <script type="text/javascript"  src="{{ asset('js/custom.js') }}" defer></script>
+    <script type="text/javascript"  src="{{ asset('js/pages/calendar/cal-init.js') }}" defer></script>
+    <script type="text/javascript"  src="{{ asset('js/pages/chart/chart-init.js') }}" defer></script>
+    <script type="text/javascript"  src="{{ asset('js/pages/chart/chart-page-init.js') }}" defer></script>
+    <script type="text/javascript"  src="{{ asset('js/pages/dashboards/dashboard1.js') }}" defer></script>
+    <script type="text/javascript"  src="{{ asset('js/pages/maps/map-google.init.js') }}" defer></script>
+    <script type="text/javascript"  src="{{ asset('js/pages/mask/mask.init.js') }}" defer></script>
+    <script type="text/javascript"  src="{{ asset('js/pages/sparkline/jquery.charts-sparkline.js') }}" defer></script>--}}
 
+
+    <link href="{{ asset('assets/libs/toastr/build/toastr.min.css') }}" rel="stylesheet" type="text/css" >
+
+    <link href="{{ asset('dist/css/style.min.css') }}" rel="stylesheet" type="text/css" >
+
+    <!-- Custom CSS -->
+      <link href="{{ asset('assets/libs/flot/css/float-chart.css') }}" rel="stylesheet" type="text/css" >
+    <!-- Custom CSS -->
+      <link href="{{ asset('dist/css/style.min.css') }}" rel="stylesheet" type="text/css" >
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+   {{-- <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+--}}
+    <!--External -->
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ asset('assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ asset('dist/css/style.min.css" rel="stylesheet') }}" rel="stylesheet">
+
+   {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" >
+    <link href="{{ asset('css/icons/font-awesome/css/fa-brands.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/css/fa-regular.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/css/fa-solid.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/css/fontawesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/css/fontawesome-all.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/less/_animated.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/less/_bordered-pulled.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/less/_core.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/less/_fixed-width.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/less/_icons.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/less/_larger.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/less/_list.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/less/_mixins.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/less/_rotated-flipped.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/less/_screen-reader.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/less/_stacked.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/less/_variables.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/less/fa-brands.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/less/fa-regular.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/less/fa-solid.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/less/fontawesome.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/scss/_animated.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/scss/_bordered-pulled.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/scss/_core.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/scss/_fixed-width.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/scss/_icons.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/scss/_larger.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/scss/_list.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/scss/_mixins.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/scss/_rotated-flipped.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/scss/_screen-reader.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/scss/_stacked.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/scss/_variables.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/scss/fa-brands.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/scss/fa-regular.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/scss/fa-solid.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/scss/fontawesome.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-brands-400.eot') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-brands-400.svg') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-brands-400.ttf') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-brands-400.woff') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-brands-400.woff2') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-regular-400.eot') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-regular-400.svg') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-regular-400.ttf') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-regular-400.woff') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-regular-400.woff2') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-solid-900.eot') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-solid-900.svg') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-solid-900.ttf') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-solid-900.woff') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-solid-900.woff2') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/material-design-iconic-font/css/material-design-iconic-font.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/material-design-iconic-font/css/materialdesignicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.eot') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.svg') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.ttf') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.woff') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.woff2') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.eot') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.svg') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.ttf') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.woff') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.woff2') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/themify-icons/fonts/themify.eot') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/themify-icons/fonts/themify.svg') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/themify-icons/fonts/themify.ttf') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/themify-icons/fonts/themify.woff') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/themify-icons/ie7/ie7.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/themify-icons/ie7/ie7.js') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/themify-icons/themify-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/css/weather-icons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/css/weather-icons-core.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/css/weather-icons-variables.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/css/weather-icons-wind.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/fonts/weathericons-regular-webfont.eot') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/fonts/weathericons-regular-webfont.svg') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/fonts/weathericons-regular-webfont.ttf') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/fonts/weathericons-regular-webfont.woff') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/fonts/weathericons-regular-webfont.woff2') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/css/variables-beaufort.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/css/variables-day.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/css/variables-direction.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/css/variables-misc.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/css/variables-moon.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/css/variables-neutral.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/css/variables-night.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/css/variables-time.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/css/variables-wind-names.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-beaufort.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-day.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-direction.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-misc.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-moon.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-moon-aliases.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-neutral.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-night.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-time.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-wind.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-wind-aliases.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-wind-degrees.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/icon-variables/variables-beaufort.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/icon-variables/variables-day.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/icon-variables/variables-direction.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/icon-variables/variables-misc.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/icon-variables/variables-moon.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/icon-variables/variables-neutral.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/icon-variables/variables-night.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/icon-variables/variables-time.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/icon-variables/variables-wind-names.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/mappings/wi-forecast-io.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/mappings/wi-owm.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/mappings/wi-wmo4680.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/mappings/wi-yahoo.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/weather-icons.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/weather-icons.min.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/weather-icons-classes.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/weather-icons-core.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/weather-icons-variables.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/weather-icons-wind.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/less/weather-icons-wind.min.less') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-beaufort.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-day.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-direction.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-misc.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-moon.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-moon-aliases.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-neutral.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-night.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-time.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-wind.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-wind-aliases.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-wind-degrees.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/icon-variables/variables-beaufort.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/icon-variables/variables-day.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/icon-variables/variables-direction.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/icon-variables/variables-misc.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/icon-variables/variables-moon.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/icon-variables/variables-neutral.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/icon-variables/variables-night.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/icon-variables/variables-time.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/icon-variables/variables-wind-names.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/mappings/wi-forecast-io.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/mappings/wi-owm.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/mappings/wi-wmo4680.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/mappings/wi-yahoo.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/weather-icons.min.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/weather-icons.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/weather-icons-classes.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/weather-icons-core.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/weather-icons-variables.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/weather-icons-wind.min.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/weather-icons/sass/weather-icons-wind.scss') }}" rel="stylesheet">
+--}}
+
+
 
     <!-- External-->
     {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--}}
 </head>
-<body>
+{{--<body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
@@ -81,5 +271,398 @@
             @yield('content')
         </main>
     </div>
+</body>--}}
+<body>
+<!-- ============================================================== -->
+<!-- Preloader - style you can find in spinners.css -->
+<!-- ============================================================== -->
+<div class="preloader">
+    <div class="lds-ripple">
+        <div class="lds-pos"></div>
+        <div class="lds-pos"></div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div id="main-wrapper">
+    <!-- ============================================================== -->
+    <!-- Topbar header - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <header class="topbar" data-navbarbg="skin5">
+        <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+            <div class="navbar-header" data-logobg="skin5">
+                <!-- This is for the sidebar toggle which is visible on mobile only -->
+                <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <a class="navbar-brand" href="index.html">
+                    <!-- Logo icon -->
+                    <b class="logo-icon p-l-10">
+                        <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                        <!-- Dark Logo icon -->
+                        <img src="../../assets/images/logo-icon.png" alt="homepage" class="light-logo" />
+
+                    </b>
+                    <!--End Logo icon -->
+                    <!-- Logo text -->
+                    <span class="logo-text">
+                             <!-- dark Logo text -->
+                             <img src="../../assets/images/logo-text.png" alt="homepage" class="light-logo" />
+
+                        </span>
+                    <!-- Logo icon -->
+                    <!-- <b class="logo-icon"> -->
+                    <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                    <!-- Dark Logo icon -->
+                    <!-- <img src="../../assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
+
+                    <!-- </b> -->
+                    <!--End Logo icon -->
+                </a>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Toggle which is visible on mobile only -->
+                <!-- ============================================================== -->
+                <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Logo -->
+            <!-- ============================================================== -->
+            <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                <!-- ============================================================== -->
+                <!-- toggle and nav items -->
+                <!-- ============================================================== -->
+                <ul class="navbar-nav float-left mr-auto">
+                    <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
+                    <!-- ============================================================== -->
+                    <!-- create new -->
+                    <!-- ============================================================== -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="d-none d-md-block">Create New <i class="fa fa-angle-down"></i></span>
+                            <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <!-- ============================================================== -->
+                    <!-- Search -->
+                    <!-- ============================================================== -->
+                    <li class="nav-item search-box"> <a class="nav-link waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+                        <form class="app-search position-absolute">
+                            <input type="text" class="form-control" placeholder="Search &amp; enter"> <a class="srh-btn"><i class="ti-close"></i></a>
+                        </form>
+                    </li>
+                </ul>
+                <!-- ============================================================== -->
+                <!-- Right side toggle and nav items -->
+                <!-- ============================================================== -->
+                <ul class="navbar-nav float-right">
+                    <!-- ============================================================== -->
+                    <!-- Comment -->
+                    <!-- ============================================================== -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-bell font-24"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <!-- ============================================================== -->
+                    <!-- End Comment -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- Messages -->
+                    <!-- ============================================================== -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="font-24 mdi mdi-comment-processing"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown" aria-labelledby="2">
+                            <ul class="list-style-none">
+                                <li>
+                                    <div class="">
+                                        <!-- Message -->
+                                        <a href="javascript:void(0)" class="link border-top">
+                                            <div class="d-flex no-block align-items-center p-10">
+                                                <span class="btn btn-success btn-circle"><i class="ti-calendar"></i></span>
+                                                <div class="m-l-10">
+                                                    <h5 class="m-b-0">Event today</h5>
+                                                    <span class="mail-desc">Just a reminder that event</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <!-- Message -->
+                                        <a href="javascript:void(0)" class="link border-top">
+                                            <div class="d-flex no-block align-items-center p-10">
+                                                <span class="btn btn-info btn-circle"><i class="ti-settings"></i></span>
+                                                <div class="m-l-10">
+                                                    <h5 class="m-b-0">Settings</h5>
+                                                    <span class="mail-desc">You can customize this template</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <!-- Message -->
+                                        <a href="javascript:void(0)" class="link border-top">
+                                            <div class="d-flex no-block align-items-center p-10">
+                                                <span class="btn btn-primary btn-circle"><i class="ti-user"></i></span>
+                                                <div class="m-l-10">
+                                                    <h5 class="m-b-0">Pavan kumar</h5>
+                                                    <span class="mail-desc">Just see the my admin!</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <!-- Message -->
+                                        <a href="javascript:void(0)" class="link border-top">
+                                            <div class="d-flex no-block align-items-center p-10">
+                                                <span class="btn btn-danger btn-circle"><i class="fa fa-link"></i></span>
+                                                <div class="m-l-10">
+                                                    <h5 class="m-b-0">Luanch Admin</h5>
+                                                    <span class="mail-desc">Just see the my new admin!</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!-- ============================================================== -->
+                    <!-- End Messages -->
+                    <!-- ============================================================== -->
+
+                    <!-- ============================================================== -->
+                    <!-- User profile and search -->
+                    <!-- ============================================================== -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+                        <div class="dropdown-menu dropdown-menu-right user-dd animated">
+                            <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
+                            <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
+                            <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                            <div class="dropdown-divider"></div>
+                            <div class="p-l-30 p-10"><a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">View Profile</a></div>
+                        </div>
+                    </li>
+                    <!-- ============================================================== -->
+                    <!-- User profile and search -->
+                    <!-- ============================================================== -->
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- ============================================================== -->
+    <!-- End Topbar header -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <aside class="left-sidebar" data-sidebarbg="skin5">
+        <!-- Sidebar scroll-->
+        <div class="scroll-sidebar">
+            <!-- Sidebar navigation-->
+            <nav class="sidebar-nav">
+                <ul id="sidebarnav" class="p-t-30">
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="widgets.html" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Widgets</span></a></li>
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tables.html" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Tables</span></a></li>
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="grid.html" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span class="hide-menu">Full Width</span></a></li>
+                    <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Forms </span></a>
+                        <ul aria-expanded="false" class="collapse  first-level">
+                            <li class="sidebar-item"><a href="form-basic.html" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Form Basic </span></a></li>
+                            <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Form Wizard </span></a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-buttons.html" aria-expanded="false"><i class="mdi mdi-relative-scale"></i><span class="hide-menu">Buttons</span></a></li>
+                    <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Icons </span></a>
+                        <ul aria-expanded="false" class="collapse  first-level">
+                            <li class="sidebar-item"><a href="icon-material.html" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="hide-menu"> Material Icons </span></a></li>
+                            <li class="sidebar-item"><a href="icon-fontawesome.html" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Font Awesome Icons </span></a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-elements.html" aria-expanded="false"><i class="mdi mdi-pencil"></i><span class="hide-menu">Elements</span></a></li>
+                    <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-move-resize-variant"></i><span class="hide-menu">Addons </span></a>
+                        <ul aria-expanded="false" class="collapse  first-level">
+                            <li class="sidebar-item"><a href="index2.html" class="sidebar-link"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu"> Dashboard-2 </span></a></li>
+                            <li class="sidebar-item"><a href="pages-gallery.html" class="sidebar-link"><i class="mdi mdi-multiplication-box"></i><span class="hide-menu"> Gallery </span></a></li>
+                            <li class="sidebar-item"><a href="pages-calendar.html" class="sidebar-link"><i class="mdi mdi-calendar-check"></i><span class="hide-menu"> Calendar </span></a></li>
+                            <li class="sidebar-item"><a href="pages-invoice.html" class="sidebar-link"><i class="mdi mdi-bulletin-board"></i><span class="hide-menu"> Invoice </span></a></li>
+                            <li class="sidebar-item"><a href="pages-chat.html" class="sidebar-link"><i class="mdi mdi-message-outline"></i><span class="hide-menu"> Chat Option </span></a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-key"></i><span class="hide-menu">Authentication </span></a>
+                        <ul aria-expanded="false" class="collapse  first-level">
+                            <li class="sidebar-item"><a href="authentication-login.html" class="sidebar-link"><i class="mdi mdi-all-inclusive"></i><span class="hide-menu"> Login </span></a></li>
+                            <li class="sidebar-item"><a href="authentication-register.html" class="sidebar-link"><i class="mdi mdi-all-inclusive"></i><span class="hide-menu"> Register </span></a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-alert"></i><span class="hide-menu">Errors </span></a>
+                        <ul aria-expanded="false" class="collapse  first-level">
+                            <li class="sidebar-item"><a href="error-403.html" class="sidebar-link"><i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 403 </span></a></li>
+                            <li class="sidebar-item"><a href="error-404.html" class="sidebar-link"><i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 404 </span></a></li>
+                            <li class="sidebar-item"><a href="error-405.html" class="sidebar-link"><i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 405 </span></a></li>
+                            <li class="sidebar-item"><a href="error-500.html" class="sidebar-link"><i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 500 </span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+    </aside>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-12 d-flex no-block align-items-center">
+                    <h4 class="page-title">Dashboard</h4>
+                    <div class="ml-auto text-right">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Library</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Sales Cards  -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <!-- Column -->
+                <div class="col-md-6 col-lg-2 col-xlg-3">
+                    <div class="card card-hover">
+                        <div class="box bg-cyan text-center">
+                            <h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i></h1>
+                            <h6 class="text-white">Dashboard</h6>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column -->
+                <div class="col-md-6 col-lg-4 col-xlg-3">
+                    <div class="card card-hover">
+                        <div class="box bg-success text-center">
+                            <h1 class="font-light text-white"><i class="mdi mdi-chart-areaspline"></i></h1>
+                            <h6 class="text-white">Charts</h6>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column -->
+                <div class="col-md-6 col-lg-2 col-xlg-3">
+                    <div class="card card-hover">
+                        <div class="box bg-warning text-center">
+                            <h1 class="font-light text-white"><i class="mdi mdi-account"></i></h1>
+                            <h6 class="text-white">Active User</h6>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column -->
+                <div class="col-md-6 col-lg-2 col-xlg-3">
+                    <div class="card card-hover">
+                        <div class="box bg-danger text-center">
+                            <h1 class="font-light text-white"><i class="mdi mdi-account"></i></h1>
+                            <h6 class="text-white">Inactive user</h6>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column -->
+                <div class="col-md-6 col-lg-2 col-xlg-3">
+                    <div class="card card-hover">
+                        <div class="box bg-info text-center">
+                            <h1 class="font-light text-white"><i class="mdi mdi-account"></i></h1>
+                            <h6 class="text-white">Registered user</h6>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column -->
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Pie Chart</h5>
+                            <div class="pie" style="height: 400px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <footer class="footer text-center fixed-end" style=" position: fixed;bottom: 0; width: 100%;">
+            All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+        </footer>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- All Jquery -->
+<!-- ============================================================== -->
+<script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap tether Core JavaScript -->
+<script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
+<script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+<script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
+<!--Wave Effects -->
+<script src="../../dist/js/waves.js"></script>
+<!--Menu sidebar -->
+<script src="../../dist/js/sidebarmenu.js"></script>
+<!--Custom JavaScript -->
+<script src="../../dist/js/custom.min.js"></script>
+<!--This page JavaScript -->
+<!-- <script src="../../dist/js/pages/dashboards/dashboard1.js"></script> -->
+<!-- Charts js Files -->
+<script src="../../assets/libs/flot/excanvas.js"></script>
+<script src="../../assets/libs/flot/jquery.flot.js"></script>
+<script src="../../assets/libs/flot/jquery.flot.pie.js"></script>
+<script src="../../assets/libs/flot/jquery.flot.time.js"></script>
+<script src="../../assets/libs/flot/jquery.flot.stack.js"></script>
+<script src="../../assets/libs/flot/jquery.flot.crosshair.js"></script>
+<script src="../../assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+<script src="../../dist/js/pages/chart/chart-page-init.js"></script>
+
 </body>
 </html>
