@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -42,5 +44,8 @@ class LoginController extends Controller
         $this->guard()->logout();
         return redirect('/login')->with('status', 'We sent you an activation code. Check your email and click on the link to verify.');
     }
-    
+    public function logout(Request $request) {
+        Auth::logout();
+        return redirect('/login');
+    }
 }

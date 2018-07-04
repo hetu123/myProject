@@ -27,3 +27,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('category', 'admin\CategoryController@index');
+Route::resource('addcategory','admin\CategoryController');
+Route::resource('product','admin\ProductController');
