@@ -377,7 +377,12 @@
                             <li class="sidebar-item"><a href="{{ url('product/create') }}" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> add product </span></a></li>
                         </ul>
                     </li>
-
+                    <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">User</span></a>
+                        <ul aria-expanded="false" class="collapse  first-level">
+                            <li class="sidebar-item"><a href="{{ url('user') }}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> List User</span></a></li>
+                            <li class="sidebar-item"><a href="{{ url('user/create') }}" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> add User </span></a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->

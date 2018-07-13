@@ -18,7 +18,11 @@
             </div>
         </div>
     </div>
-
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
     <div class="container-fluid">
         <h2>Add Product Form</h2><br/>
         <form method="post" action="{{url('product')}}" enctype="multipart/form-data">
@@ -69,8 +73,9 @@
                 <div class="col-md-4"></div>
                 <div class="form-group col-md-4">
                     <lable>Parent Category</lable>
-                    <select name="pid">
-                        <option value="0">Select Parent Category</option>
+                    <select id="select_preferences" name="select_preferences[]" multiple="multiple">
+                    {{--<select name="pid">--}}
+                        {{--<option value="0">Select Parent Category</option>--}}
                         @foreach($category as $cat)
                             <option value="{{ $cat->id}}">{{ $cat->name}}</option>
                         @endforeach
@@ -84,7 +89,7 @@
                 <div class="form-group col-md-4">
                     <lable>IsActive</lable>
                     <select name="active">
-                        <option value="0">Select Parent Category</option>
+                        <option value="0">Select Option</option>
                         <option value="1">Yes</option>
                         <option value="0">No</option>
                     </select>
@@ -97,7 +102,7 @@
                 <div class="form-group col-md-4">
                     <lable>IsPopuler</lable>
                     <select name="populer">
-                        <option value="0">Select Parent Category</option>
+                        <option value="0">Select Option</option>
                         <option value="1">Yes</option>
                         <option value="0">No</option>
                     </select>

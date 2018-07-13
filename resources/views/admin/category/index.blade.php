@@ -58,6 +58,9 @@
                         <td>{{ ++$i }}</td>
                         <td>{{ $cat->name }}</td>
                         <td>{{ $cat->description }}</td>
+                     {{--   $user = DB::table('category')->where('id', $cat['pid'] )->first()
+                     --}}
+
                         <td>{{ $cat->pid }}</td>
                         <td>{{ $cat->is_active }}</td>
                         <td>{{ $cat->is_populer }}</td>

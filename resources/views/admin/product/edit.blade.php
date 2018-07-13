@@ -21,8 +21,9 @@
 
     <div class="container-fluid">
         <h2>Edit Product Form</h2><br/>
-        <form method="post"  {{--action="{{action('admin\ProdutController@update', $id)}}"--}} enctype="multipart/form-data">
+        <form method="post" action="{{action('admin\ProductController@update', $product['id'])}}"  enctype="multipart/form-data">
         @csrf
+            <input name="_method" type="hidden" value="PATCH">
         <!--Name-->
             <div class="row">
                 <div class="col-md-4"></div>
@@ -59,25 +60,18 @@
                 </div>
             </div>
 
-            <!--Image Icon-->
+            <!--Parent Category-->
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="form-group col-md-4">
-                    <label for="coverimage">ProdutImage:</label><br>
-                    @foreach($img as $i)
+                    <lable>Parent Category</lable>
+                    <select id="select_preferences" name="select_preferences[]" multiple="multiple">
+                   {{-- <select name="pid">--}}
 
-
-                         @if (public_path()."images/ {{ $i->image }}")
-                            <?php $image1 = $i->image ?>
-                                <img height="200" width="200"  src="{{  asset('images/'.$image1 ) }}">
-                          @else
-                             <p>No image found</p>
-                          @endif
-
-                @endforeach
-                    <br>
-                    <input required type="file"  name="images[]"  multiple>
-                    {{--<input type="file" name="coverImage">--}}
+                        @foreach($category as $cat)
+                            <option value="{{ $cat->id}}">{{ $cat->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
 
@@ -87,11 +81,12 @@
                 <div class="form-group col-md-4">
                     <lable>IsActive</lable>
                     <select name="active">
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
+                        <option value="1"  @if($product->is_active=="Yes") selected @endif>Yes</option>
+                        <option value="0"  @if($product->is_active=="No") selected @endif>No</option>
                     </select>
                 </div>
             </div>
+
 
             <!--Is Populer-->
             <div class="row">
@@ -99,21 +94,41 @@
                 <div class="form-group col-md-4">
                     <lable>IsPopuler</lable>
                     <select name="populer">
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
+                        <option value="1"  @if($product->is_active=="Yes") selected @endif>Yes</option>
+                        <option value="0"  @if($product->is_active=="No") selected @endif>No</option>
                     </select>
                 </div>
             </div>
 
-            <!--submit buttn -->
+            <!-- Manage multiple image -->
             <div class="row">
+                <div class="col-md-4"></div>
+                <div class="form-group col-md-4" style="margin-top:60px">
+
+                            <button type="button" class="btn btn-default" onclick="myfunction()">Mange Product Image</button>
+
+                <div class="form-group col-md-4" style="margin-top:60px">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+
+            </div>
+
+            <!--submit buttn -->
+          {{--  <div class="row">
                 <div class="col-md-4"></div>
                 <div class="form-group col-md-4" style="margin-top:60px">
                     <button type="submit" class="btn btn-success">Submit</button>
                 </div>
-            </div>
+            </div>--}}
 
         </form>
-    </div>
 
+    </div>
+    <script>
+        function  myfunction(){
+            document.location = "http://myproject/productimage/{{ $product->id }}";
+
+        }
+    </script>
 @endsection
+

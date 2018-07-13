@@ -57,7 +57,8 @@
                     <div class="col-md-4"></div>
                     <div class="form-group col-md-4">
                         <lable>Parent Category</lable>
-                        <select name="pid">
+                        <select id="select_preferences" name="select_preferences[]" multiple="multiple">
+              {{--          <select name="pid">--}}
                             <option value="0">Select Parent Category</option>
                             @foreach($parent as $parent)
 
