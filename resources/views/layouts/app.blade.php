@@ -381,6 +381,7 @@
                         <ul aria-expanded="false" class="collapse  first-level">
                             <li class="sidebar-item"><a href="{{ url('user') }}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> List User</span></a></li>
                             <li class="sidebar-item"><a href="{{ url('user/create') }}" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> add User </span></a></li>
+                            <li class="sidebar-item"><a href="{{ url('importExport') }}" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Import User </span></a></li>
                         </ul>
                     </li>
                 </ul>

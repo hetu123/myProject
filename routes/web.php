@@ -33,5 +33,8 @@ Route::resource('addcategory','admin\CategoryController');
 Route::resource('product','admin\ProductController');
 Route::resource('user','admin\UserController');
 Route::resource('productimage','admin\ImageController');
-//Route::get('/image', 'admin\ProductController@image');
+Route::get('importExport', 'admin\MaatwebsiteDemoController@importExport');
 
+Route::get('downloadExcel/{type}', 'admin\MaatwebsiteDemoController@downloadExcel');
+
+Route::post('importExcel', 'admin\MaatwebsiteDemoController@importExcel');

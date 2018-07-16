@@ -21,18 +21,12 @@ class ProductController extends Controller
 
         return view('admin/product.index',compact('products'))->with('i',(\request()->input('page',1)-1)*5);
     }
-    public function image(){
-        echo 'hii';die;
-    }
+
     public function create(){
-       /* $product_id=$_GET['id'];
-       $images =  Image::select('*')->where(['product_id'=>$product_id])->get();
-        return view('admin/product.image',compact('images'));
-        return view('admin/product.image');*/
 
         $category= Category::select('*')->where(['pid'=>'0'])->get();
         return view('admin/product.create',compact('category'));
-      //  return view('admin/product.create');
+
     }
 
 

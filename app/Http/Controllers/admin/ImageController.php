@@ -39,35 +39,20 @@ class ImageController extends Controller
            $image->image = $img;
            $image->save();
        }
-       return redirect('productimage')->with('success', 'Information has been added successfully');
+       return $this->show($id);
+      // return redirect('productimage',['id'=>$id])->with('success', 'Information has been added successfully');
    }
-  /* public function crea{
-  te()
-   {
-       $product_id = $_GET['id'];
-       $images = Image::select('*')->where(['product_id' => $product_id])->get();
-       return view('admin/image.create', compact('images'));
-   }
-   public function edit($id){}
-    public function update(Request $request, $id)
-    {
 
-    }*/
-  /*  public function show(){
-        $product_id = $_GET['id'];
-        $images = Image::select('*')->where(['product_id' => $product_id])->get();
-        return view('admin/image.edit', compact('images'));
-    }*/
    public function destroy($id){
 
 
        $image = Image::find($id);
-        $product_id = $image->product_id;
+       $product_id = $image->product_id;
        $image->delete();
-       return redirect('productimage')->with('success','Information has been  deleted');
-      // $images = Image::select('*')->where(['product_id' => $product_id])->get();
 
-      // return view('admin/image.index', compact('images'));
-      return redirect('admin/image.index')->with('success','Image has been  deleted');
+       return $this->show($product_id);
+   }
+   public function __construct(){
+
    }
 }
