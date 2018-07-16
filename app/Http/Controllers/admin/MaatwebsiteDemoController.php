@@ -6,7 +6,7 @@ use App\admin\User;
 use Illuminate\Http\Request;
 
 use App\Item;
-
+use Illuminate\Support\Facades\Hash;
 use Excel;
 
 use App\Http\Controllers\Controller;
@@ -50,7 +50,7 @@ class MaatwebsiteDemoController extends Controller
 
         $data = User::get()->toArray();
        // print_r($data);die;
-        
+
         return Excel::create('itsolutionstuff_example', function($excel) use ($data) {
 
             $excel->sheet('mySheet', function($sheet) use ($data)
@@ -88,17 +88,27 @@ class MaatwebsiteDemoController extends Controller
 
             $data = Excel::load($path, function($reader) {})->get();
 
-           // print_r($data);die;
+          //  print_r($data);die;
             if(!empty($data) && $data->count()){
 
 
                 foreach ($data->toArray() as $key => $value) {
-
-                    if(!empty($value)){
-                      // print_r($value['title']);die;
+                    //print_r($value);
+                    if(!empty($value['username'])){
+                      //  echo 'hii';
+                    //  print_r($value['email']);die;
                         //foreach ($value as $v) {
                           //  print_r($v['title']);die;
-                            $insert[] = ['title' => $value['title'], 'description' => $value['description']];
+                            $insert[] = [
+                                'username' => $value['username'],
+                                'first_name' => $value['first_name'],
+                                'last_name'=>$value['last_name'],
+                                'email'=>$value['email'],
+                                'password'=>Hash::make($request->get($value['password'])),
+                                'phone_number'=>$value['phone_number'],
+                                'is_active'=>$value['is_active'],
+                                'verified'=>$value['verified']
+                            ];
 
                         //}
 
@@ -106,12 +116,12 @@ class MaatwebsiteDemoController extends Controller
 
                 }
 
-
+               // die;
 
 
                 if(!empty($insert)){
-
-                    Item::insert($insert);
+                   // print_r($insert);die;
+                    User::insert($insert);
 
                     return back()->with('success','Insert Record successfully.');
 
