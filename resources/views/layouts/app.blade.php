@@ -384,6 +384,12 @@
                             <li class="sidebar-item"><a href="{{ url('importExport') }}" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Import User </span></a></li>
                         </ul>
                     </li>
+                    <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Deal</span></a>
+                        <ul aria-expanded="false" class="collapse  first-level">
+                            <li class="sidebar-item"><a href="{{ url('deals') }}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> List deal</span></a></li>
+                            <li class="sidebar-item"><a href="{{ url('deals/create') }}" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> add deal </span></a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->

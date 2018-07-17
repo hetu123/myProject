@@ -14,19 +14,15 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Mail\VerifyMail;
 class UserController extends Controller
 {
-    public function index()
-    {
+    public function index(){
         $users = User::latest()->paginate();
-
-
         return view('admin/User.index',compact('users'))->with('i',(\request()->input('page',1)-1)*5);
     }
-    public function create(){
 
-      //  $parent= User::select('*')->where(['pid'=>0])->get();
-      //  return view('admin/category.create',compact('parent'));
+    public function create(){
         return view('admin/User.create');
     }
+
     public function store(Request $request){
         $user = new User();
         $user->username = $request->get('UserName');
@@ -41,13 +37,12 @@ class UserController extends Controller
         }
     }
 
-    public function edit($id)
-    {
+    public function edit($id){
         $user = User::find($id);
         return view('admin/User.edit',compact('user','id'));
     }
-    public function update(Request $request, $id)
-    {
+
+    public function update(Request $request, $id){
         $user = \App\admin\User::find($id);
         $user->username = $request->get('UserName');
         $user->first_name = $request->get('FirstName');
@@ -58,8 +53,8 @@ class UserController extends Controller
         $user->save();
         return redirect('user')->with('success', 'Information has been updated successfully');
     }
-    protected function validator(array $data)
-    {   //echo 'hii';
+
+    protected function validator(array $data){
         return Validator::make($data, [
             'username' => 'required|string|max:255|unique:users',
             'first_name' => 'required|string|max:255',
@@ -69,13 +64,12 @@ class UserController extends Controller
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
-    public function getImport()
-    {
+
+    public function getImport(){
         return view('import');
     }
 
-    public function parseImport(CsvImportRequest $request)
-    {
+    public function parseImport(CsvImportRequest $request){
         $path = $request->file('csv_file')->getRealPath();
         $data = array_map('str_getcsv', file($path));
         $csv_data = array_slice($data, 0, 2);

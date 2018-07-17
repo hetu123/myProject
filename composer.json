@@ -14,7 +14,8 @@
         "maatwebsite/excel": "~2.1.0",
         "psr/log": "^1.0",
         "symfony/event-dispatcher": "^4.1",
-        "symfony/lock": "^4.1"
+        "symfony/lock": "^4.1",
+        "unisharp/laravel-ckeditor": "^4.7"
     },
     "require-dev": {
         "filp/whoops": "^2.0",

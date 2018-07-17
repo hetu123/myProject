@@ -38,3 +38,4 @@ Route::get('importExport', 'admin\MaatwebsiteDemoController@importExport');
 Route::get('downloadExcel/{type}', 'admin\MaatwebsiteDemoController@downloadExcel');
 
 Route::post('importExcel', 'admin\MaatwebsiteDemoController@importExcel');
+Route::resource('deals','admin\DealsController');

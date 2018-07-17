@@ -81,8 +81,8 @@
                 <div class="form-group col-md-4">
                     <lable>IsActive</lable>
                     <select name="active">
-                        <option value="1"  @if($product->is_active=="Yes") selected @endif>Yes</option>
-                        <option value="0"  @if($product->is_active=="No") selected @endif>No</option>
+                        <option value="1"  @if($product->is_active=="1") selected @endif>Yes</option>
+                        <option value="0"  @if($product->is_active=="0") selected @endif>No</option>
                     </select>
                 </div>
             </div>
@@ -94,11 +94,12 @@
                 <div class="form-group col-md-4">
                     <lable>IsPopuler</lable>
                     <select name="populer">
-                        <option value="1"  @if($product->is_active=="Yes") selected @endif>Yes</option>
-                        <option value="0"  @if($product->is_active=="No") selected @endif>No</option>
+                        <option value="1"  @if($product->is_populer=="1") selected @endif>Yes</option>
+                        <option value="0"  @if($product->is_populer=="0") selected @endif>No</option>
                     </select>
                 </div>
             </div>
+
 
             <!-- Manage multiple image -->
             <div class="row">

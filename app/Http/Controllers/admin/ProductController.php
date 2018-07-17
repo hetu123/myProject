@@ -14,25 +14,17 @@ use Mockery\Generator\StringManipulation\Pass\InstanceMockPass;
 
 class ProductController extends Controller
 {
-    public function index()
-    {
-
-        $products = Product::latest()->paginate();
-
-        return view('admin/product.index',compact('products'))->with('i',(\request()->input('page',1)-1)*5);
+    public function index(){
+      $products = Product::latest()->paginate();
+      return view('admin/product.index',compact('products'))->with('i',(\request()->input('page',1)-1)*5);
     }
 
     public function create(){
-
         $category= Category::select('*')->where(['pid'=>'0'])->get();
         return view('admin/product.create',compact('category'));
-
     }
 
-
-    public function store(Request $request)
-    {
-
+    public function store(Request $request){
         $name='';
         $images=array();
         if($files=$request->file('images')){
@@ -42,11 +34,8 @@ class ProductController extends Controller
                 $images[]=$name;
             }
         }
-
-
-
         if($request->hasfile('coverImage'))
-        {  // echo 'hii';die;;
+        {
             $file = $request->file('coverImage');
             $name=time().$file->getClientOriginalName();
             $file->move(public_path().'/images/', $name);
@@ -56,7 +45,6 @@ class ProductController extends Controller
             return redirect('product/create')->with('success', 'Plz select category');
         }
         $product = new Product();
-
         $product->title = $request->get('name');
         $product->is_active = $request->get('active');
         $product->is_populer = $request->get('populer');
@@ -69,17 +57,13 @@ class ProductController extends Controller
                 $image->image = $img;
                 $image->save();
             }
-
             $category_ids =$request->get('select_preferences');
             if(!empty($category_ids)){
                 foreach ($category_ids as $category_id){
-                    // echo $category_id;
                     $productCategory = new ProductCategory();
                     $productCategory->product_id = $product->id;
                     $productCategory->category_id =   $category_id;
                     $productCategory->save();
-                    // print_r($productCategory);
-                    //  die;
                 }
             }
 
@@ -88,34 +72,20 @@ class ProductController extends Controller
 
     }
 
-    public function edit($id)
-    {
-        if(isset($_GET['p_id'])){
-
-        }
-       // echo 'hii';die;
+    public function edit($id){
         $product = Product::find($id);
         $category= Category::select('*')->where(['pid'=>'0'])->get();
-       // $img = Image::find()->where(['product_id'=>$product->id]);
-      //  $img = DB::table('image')->where('product_id', $product->id)->get();
-      /* foreach ($img as $i){
-           echo $i->image;die;
-
-       }*/
-
         return view('admin/product.edit',compact('product','category','id'));
-     //   return view('admin/product.edit',compact('product',,'id'));
     }
 
     public function show(){
-
     }
+
     public function update(Request $request, $id)
     {
         $product = Product::find($id);
-        $name='';
-        if($request->hasfile('coverImage'))
-        {
+        $name= $product->cover_image ;
+        if($request->hasfile('coverImage')){
             $file = $request->file('coverImage');
             $name=time().$file->getClientOriginalName();
             $file->move(public_path().'/images/', $name);
@@ -128,8 +98,8 @@ class ProductController extends Controller
         if($product->save()){
             $category_ids =$request->get('select_preferences');
             if(!empty($category_ids)){
+                ProductCategory::select('*')->where(['product_id' => $product->id])->delete();
                 foreach ($category_ids as $category_id) {
-                    ProductCategory::select('*')->where(['product_id' => $product->id])->delete();
                     $productCategory = new ProductCategory();
                     $productCategory->product_id = $product->id;
                     $productCategory->category_id = $category_id;
@@ -139,11 +109,8 @@ class ProductController extends Controller
             else{
                 return redirect('product')->with('success', 'Information has been updated successfully');
             }
-
         }
         return redirect('product')->with('success', 'Information has been updated successfully');
-
-
     }
 
     public function destroy($id)
@@ -152,6 +119,4 @@ class ProductController extends Controller
         $product->delete();
         return redirect('product')->with('success','Information has been  deleted');
     }
-
-
 }

@@ -8,21 +8,13 @@ use App\Http\Controllers\Controller;
 
 class ImageController extends Controller
 {
-    public function index()
-    {
-
+    public function index(){
    }
    public function show($id){
-
        $images = Image::select('*')->where(['product_id' => $id])->get();
        return view('admin/image.index', compact('images'));
-       /*foreach ($images as $img){
-           echo $img->id;
-       }
-        ;die;*/
    }
    public function store(){
-        echo 'hhii';
    }
    public function update(Request $request,$id){
        $images=array();
@@ -40,16 +32,12 @@ class ImageController extends Controller
            $image->save();
        }
        return $this->show($id);
-      // return redirect('productimage',['id'=>$id])->with('success', 'Information has been added successfully');
    }
 
    public function destroy($id){
-
-
        $image = Image::find($id);
        $product_id = $image->product_id;
        $image->delete();
-
        return $this->show($product_id);
    }
    public function __construct(){
