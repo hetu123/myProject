@@ -60,8 +60,9 @@
                         <td>{{ $cat->description }}</td>
                      {{--   $user = DB::table('category')->where('id', $cat['pid'] )->first()
                      --}}
-
-                        <td>{{ $cat->pid }}</td>
+                        @inject('catename','App\admin\Category')
+                        <td>{{$catename->select('name')->where('id','=',$cat->pid)->get()}}</td>
+                        {{--<td>{{ $cat->pid }}</td>--}}
                         <td>{{ $cat->is_active }}</td>
                         <td>{{ $cat->is_populer }}</td>
                         <?php $image = $cat['image_icon'] ?>

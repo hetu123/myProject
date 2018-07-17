@@ -82,19 +82,10 @@ class ProductController extends Controller
                     //  die;
                 }
             }
-            else{
 
-            }
-
-        //  die;
         }
         return redirect('product')->with('success', 'Information has been added successfully');
-        /*$input = $request->all();
 
-
-        Category::create($input);
-
-        return redirect()->back();*/
     }
 
     public function edit($id)

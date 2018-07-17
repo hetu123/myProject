@@ -58,6 +58,11 @@
                     <td>{{ ++$i }}</td>
                     <td>{{ $product->title }}</td>
                     <td>{{ $product->description }}</td>
+                   {{-- @inject('catename','App\admin\Category')
+
+                    @inject('product_id','App\admin\ProductCategory')
+                    {{$product_id->select('category_id')->where('product_id','=',$product->id)->get()}}
+                    <td>{{$catename->select('name')->where('id','=',$product_id)->get()}}</td>--}}
                     <td></td>
                     <td>{{ $product->is_active }}</td>
                     <td>{{ $product->is_populer }}</td>
