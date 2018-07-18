@@ -48,3 +48,8 @@ Route::resource('user','API\UserController');
 Route::get('categoryList', 'API\APIController@categoryList');
 Route::get('subCategoryList', 'API\APIController@subCategoryList');
 Route::get('categoryDetail', 'API\APIController@categoryDetail');
+Route::get('productDetail', 'API\APIController@productDetail');
+Route::get('dealDetail', 'API\APIController@dealDetail');
+Route::get('userFavourite', 'API\UserController@userFavourite');
+Route::get('signup', 'API\UserController@signup');
+//Route::get('login', 'API\UserController@login');

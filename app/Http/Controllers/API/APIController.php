@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\admin\deals;
 use App\API\Category;
 use App\API\Product;
 use Illuminate\Http\Request;
@@ -33,7 +34,7 @@ class APIController extends BaseController
     }
 
     public function categoryDetail(Request $request){
-        $category_id[] = $request->category_id;
+        $category_id = $request->category_id;
        // $category = Category::find('id',$category_id);
         $category = Category::with('products')->with('products.images')->with('products.deals')->where('id',$category_id)->get();
         if ( $category->isEmpty() ) {
@@ -42,5 +43,31 @@ class APIController extends BaseController
         $success['category-detail'] =  $category;
 
         return $this->sendResponse($success, 'Category Detail send successfully.');
+    }
+
+    public function productDetail(Request $request){
+        $product_id = $request->product_id;
+        // $category = Category::find('id',$category_id);
+
+        $product = Product::with('images')->with('deals')->where('id',$product_id)->get();
+        if ( $product->isEmpty() ) {
+            return response(['error' => 'Record not found'], 404);
+        }
+        $success['product-detail'] =  $product;
+
+        return $this->sendResponse($success, 'Product Detail send successfully.');
+    }
+
+    public function dealDetail(Request $request){
+        $deal_id = $request->deal_id;
+        // $category = Category::find('id',$category_id);
+
+        $product = \App\API\Deals::with('products')->with('products.images')->where('id',$deal_id)->get();
+        if ( $product->isEmpty() ) {
+            return response(['error' => 'Record not found'], 404);
+        }
+        $success['product-detail'] =  $product;
+
+        return $this->sendResponse($success, 'Product Detail send successfully.');
     }
 }
