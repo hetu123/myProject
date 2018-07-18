@@ -17,4 +17,17 @@ class Product extends Model
     protected $fillable = [
         'title','is_active', 'is_populer ','cover_image','description'
     ];
+
+    public function categories()
+    {
+        return $this->belongsToMany('App\API\Category');
+    }
+    public function images(){
+
+        return $this->hasMany('App\API\Image');
+    }
+    public function deals()
+    {
+        return $this->belongsToMany('App\API\Deals');
+    }
 }

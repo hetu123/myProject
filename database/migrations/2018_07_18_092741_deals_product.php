@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ProductCategory extends Migration
+class DealsProduct extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,16 @@ class ProductCategory extends Migration
      */
     public function up()
     {
-        Schema::create('product_category', function (Blueprint $table) {
+        Schema::create('deals_product', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('product_id');;
-            $table->unsignedInteger('category_id');
+            $table->unsignedInteger('deals_id');
             //$table->string('description');
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('product')->onDelete('cascade')->onUpdate('cascade');;
-            $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade')->onUpdate('cascade');;
+            $table->foreign('deals_id')->references('id')->on('deals')->onDelete('cascade')->onUpdate('cascade');;
         });
-
     }
 
     /**
@@ -33,11 +32,10 @@ class ProductCategory extends Migration
      */
     public function down()
     {
-      //  Schema::dropIfExists('product_category');
-        Schema::table('product_category', function($table) {
+        Schema::table('deals_product', function($table) {
             $table->dropIndex(['product_id']);
-            $table->dropIndex(['category_id']);
-            $table->dropForeign(['category_id']);
+            $table->dropIndex(['deals_id']);
+            $table->dropForeign(['deals_id']);
             $table->dropForeign(['product_id']);
             Schema::dropIfExists('product_category');
         });

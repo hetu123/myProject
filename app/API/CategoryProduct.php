@@ -4,9 +4,9 @@ namespace App\API;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProductDeal extends Model
+class CategoryProduct extends Model
 {
-    protected $table = 'product_deal';
+    protected $table = 'category_product';
     // use Notifiable;
 
     /**
@@ -15,6 +15,7 @@ class ProductDeal extends Model
      * @var array
      */
     protected $fillable = [
-        'product_id','deal_id'
+        'product_id','category_id'
     ];
+
 }

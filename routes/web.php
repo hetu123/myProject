@@ -39,3 +39,12 @@ Route::get('downloadExcel/{type}', 'admin\MaatwebsiteDemoController@downloadExce
 
 Route::post('importExcel', 'admin\MaatwebsiteDemoController@importExcel');
 Route::resource('deals','admin\DealsController');
+
+Route::resource('api','API\APIController');
+Route::resource('user','API\UserController');
+
+
+/* API Route*/
+Route::get('categoryList', 'API\APIController@categoryList');
+Route::get('subCategoryList', 'API\APIController@subCategoryList');
+Route::get('categoryDetail', 'API\APIController@categoryDetail');

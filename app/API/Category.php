@@ -18,4 +18,8 @@ class Category extends Model
         'name','image','pid','is_active', 'pid ','is_populer','description'
     ];
 
+    public function products()
+    {
+        return $this->belongsToMany('App\API\Product');
+    }
 }

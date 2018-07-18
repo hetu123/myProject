@@ -1,12 +1,12 @@
 <?php
 
-namespace App\admin;
+namespace App\API;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProductDeal extends Model
+class DealsProduct extends Model
 {
-    protected $table = 'product_deal';
+    protected $table = 'deals_product';
     // use Notifiable;
 
     /**

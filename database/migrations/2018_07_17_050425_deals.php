@@ -20,7 +20,7 @@ class Deals extends Migration
             $table->string('short_description');
             $table->tinyInteger('is_active')->default(0);
             $table->tinyInteger('is_populer')->default(0);
-            $table->integer('favorite_cnt');
+            $table->integer('favorite_cnt')->default(0);
             $table->timestamps();
         });
     }

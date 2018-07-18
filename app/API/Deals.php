@@ -17,4 +17,9 @@ class Deals extends Model
     protected $fillable = [
         'title','description','short_description','is_active', 'favorite_cnt ','is_populer'
     ];
+
+    public function products()
+    {
+        return $this->belongsToMany('App\API\Product');
+    }
 }

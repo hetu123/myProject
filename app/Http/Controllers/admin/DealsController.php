@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use App\admin\deals;
 use App\admin\Product;
 use App\admin\ProductDeal;
+use App\API\DealProduct;
+use App\API\DealsProduct;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -30,9 +32,9 @@ class DealsController extends Controller
         if(!empty($products)) {
             foreach ($products as $product) {
                 if($deal->save()){
-                    $product_deal = new ProductDeal();
+                    $product_deal = new DealsProduct();
                     $product_deal->product_id = $product;
-                    $product_deal->deal_id = $deal->id;
+                    $product_deal->deals_id = $deal->id;
                     $product_deal->save();
                 }
             }
@@ -59,7 +61,7 @@ class DealsController extends Controller
             ProductDeal::select('*')->where(['deal_id' => $deal->id])->delete();
             foreach ($products as $product) {
                 if($deal->save()){
-                    $product_deal = new ProductDeal();
+                    $product_deal = new DealProduct();
                     $product_deal->product_id = $product;
                     $product_deal->deal_id = $deal->id;
                     $product_deal->save();
@@ -68,6 +70,13 @@ class DealsController extends Controller
         }
         return redirect('deals')->with('success', 'Information has been updated successfully');
     }
-    public function destroy($id){}
+    public function destroy($id){
+        $deal = deals::find($id);
+        $deal->delete();
+        return redirect('deals')->with('success','Information has been  deleted');
+    }
+    public function hello(){
+        echo 'hii';
+    }
 }
 

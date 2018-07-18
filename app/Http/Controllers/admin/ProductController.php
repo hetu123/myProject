@@ -7,6 +7,7 @@ use App\admin\Image;
 use App\admin\Product;
 use App\admin\ProductCategory;
 use App\admin\ProductImage;
+use App\API\CategoryProduct;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +21,7 @@ class ProductController extends Controller
     }
 
     public function create(){
-        $category= Category::select('*')->where(['pid'=>'0'])->get();
+        $category=DB::table('category')->where('pid','<>', '0')->get();
         return view('admin/product.create',compact('category'));
     }
 
@@ -60,7 +61,7 @@ class ProductController extends Controller
             $category_ids =$request->get('select_preferences');
             if(!empty($category_ids)){
                 foreach ($category_ids as $category_id){
-                    $productCategory = new ProductCategory();
+                    $productCategory = new CategoryProduct();
                     $productCategory->product_id = $product->id;
                     $productCategory->category_id =   $category_id;
                     $productCategory->save();
