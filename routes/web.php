@@ -40,16 +40,18 @@ Route::get('downloadExcel/{type}', 'admin\MaatwebsiteDemoController@downloadExce
 Route::post('importExcel', 'admin\MaatwebsiteDemoController@importExcel');
 Route::resource('deals','admin\DealsController');
 
-Route::resource('api','API\APIController');
-Route::resource('user','API\UserController');
 
 
 /* API Route*/
-Route::get('categoryList', 'API\APIController@categoryList');
-Route::get('subCategoryList', 'API\APIController@subCategoryList');
-Route::get('categoryDetail', 'API\APIController@categoryDetail');
-Route::get('productDetail', 'API\APIController@productDetail');
-Route::get('dealDetail', 'API\APIController@dealDetail');
-Route::get('userFavourite', 'API\UserController@userFavourite');
-Route::get('signup', 'API\UserController@signup');
+
 //Route::get('login', 'API\UserController@login');
+
+Route::group(['prefix' => 'api'], function () {
+    Route::get('categoryList', 'API\APIController@categoryList');
+    Route::get('subCategoryList', 'API\APIController@subCategoryList');
+    Route::get('categoryDetail', 'API\APIController@categoryDetail');
+    Route::get('productDetail', 'API\APIController@productDetail');
+    Route::get('dealDetail', 'API\APIController@dealDetail');
+    Route::get('userFavourite', 'API\UserController@userFavourite');
+    Route::post('signup', 'API\UserController@signup');
+});

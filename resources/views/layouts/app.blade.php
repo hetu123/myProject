@@ -13,21 +13,6 @@
     <link rel="icon" type="image/png" sizes="16x16"  href="{{ asset('assets/images/favicon.png') }}" >
 
 
-    <!-- Scripts -->
-  {{--  <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
-    <script type="text/javascript"  src="{{ asset('js/myscript.js') }}" defer></script>
-    <script type="text/javascript"  src="{{ asset('js/waves.js') }}" defer></script>
-    <script type="text/javascript"  src="{{ asset('js/jquery.ui.touch-punch-improved.js') }}" defer></script>
-    <script type="text/javascript"  src="{{ asset('js/jquery-ui.min.js') }}" defer></script>
-    <script type="text/javascript"  src="{{ asset('js/sidebarmenu.js') }}" defer></script>
-    <script type="text/javascript"  src="{{ asset('js/custom.js') }}" defer></script>
-    <script type="text/javascript"  src="{{ asset('js/pages/calendar/cal-init.js') }}" defer></script>
-    <script type="text/javascript"  src="{{ asset('js/pages/chart/chart-init.js') }}" defer></script>
-    <script type="text/javascript"  src="{{ asset('js/pages/chart/chart-page-init.js') }}" defer></script>
-    <script type="text/javascript"  src="{{ asset('js/pages/dashboards/dashboard1.js') }}" defer></script>
-    <script type="text/javascript"  src="{{ asset('js/pages/maps/map-google.init.js') }}" defer></script>
-    <script type="text/javascript"  src="{{ asset('js/pages/mask/mask.init.js') }}" defer></script>
-    <script type="text/javascript"  src="{{ asset('js/pages/sparkline/jquery.charts-sparkline.js') }}" defer></script>--}}
 
 
     <link href="{{ asset('assets/libs/toastr/build/toastr.min.css') }}" rel="stylesheet" type="text/css" >
@@ -38,10 +23,7 @@
       <link href="{{ asset('assets/libs/flot/css/float-chart.css') }}" rel="stylesheet" type="text/css" >
     <!-- Custom CSS -->
       <link href="{{ asset('dist/css/style.min.css') }}" rel="stylesheet" type="text/css" >
-    <!-- Fonts -->
-   {{-- <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
---}}
+
     <!--External -->
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -53,225 +35,39 @@
     <!-- Custom CSS -->
     <link href="{{ asset('dist/css/style.min.css" rel="stylesheet') }}" rel="stylesheet">
 
-   {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" >
-    <link href="{{ asset('css/icons/font-awesome/css/fa-brands.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/css/fa-regular.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/css/fa-solid.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/css/fontawesome.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/css/fontawesome-all.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/less/_animated.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/less/_bordered-pulled.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/less/_core.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/less/_fixed-width.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/less/_icons.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/less/_larger.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/less/_list.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/less/_mixins.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/less/_rotated-flipped.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/less/_screen-reader.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/less/_stacked.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/less/_variables.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/less/fa-brands.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/less/fa-regular.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/less/fa-solid.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/less/fontawesome.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/scss/_animated.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/scss/_bordered-pulled.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/scss/_core.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/scss/_fixed-width.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/scss/_icons.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/scss/_larger.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/scss/_list.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/scss/_mixins.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/scss/_rotated-flipped.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/scss/_screen-reader.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/scss/_stacked.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/scss/_variables.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/scss/fa-brands.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/scss/fa-regular.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/scss/fa-solid.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/scss/fontawesome.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-brands-400.eot') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-brands-400.svg') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-brands-400.ttf') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-brands-400.woff') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-brands-400.woff2') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-regular-400.eot') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-regular-400.svg') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-regular-400.ttf') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-regular-400.woff') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-regular-400.woff2') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-solid-900.eot') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-solid-900.svg') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-solid-900.ttf') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-solid-900.woff') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/font-awesome/webfonts/fa-solid-900.woff2') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/material-design-iconic-font/css/material-design-iconic-font.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/material-design-iconic-font/css/materialdesignicons.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.eot') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.svg') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.ttf') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.woff') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.woff2') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.eot') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.svg') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.ttf') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.woff') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.woff2') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/themify-icons/fonts/themify.eot') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/themify-icons/fonts/themify.svg') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/themify-icons/fonts/themify.ttf') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/themify-icons/fonts/themify.woff') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/themify-icons/ie7/ie7.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/themify-icons/ie7/ie7.js') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/themify-icons/themify-icons.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/css/weather-icons.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/css/weather-icons-core.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/css/weather-icons-variables.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/css/weather-icons-wind.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/fonts/weathericons-regular-webfont.eot') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/fonts/weathericons-regular-webfont.svg') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/fonts/weathericons-regular-webfont.ttf') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/fonts/weathericons-regular-webfont.woff') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/fonts/weathericons-regular-webfont.woff2') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/css/variables-beaufort.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/css/variables-day.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/css/variables-direction.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/css/variables-misc.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/css/variables-moon.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/css/variables-neutral.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/css/variables-night.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/css/variables-time.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/css/variables-wind-names.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-beaufort.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-day.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-direction.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-misc.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-moon.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-moon-aliases.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-neutral.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-night.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-time.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-wind.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-wind-aliases.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/icon-classes/classes-wind-degrees.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/icon-variables/variables-beaufort.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/icon-variables/variables-day.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/icon-variables/variables-direction.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/icon-variables/variables-misc.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/icon-variables/variables-moon.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/icon-variables/variables-neutral.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/icon-variables/variables-night.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/icon-variables/variables-time.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/icon-variables/variables-wind-names.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/mappings/wi-forecast-io.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/mappings/wi-owm.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/mappings/wi-wmo4680.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/mappings/wi-yahoo.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/weather-icons.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/weather-icons.min.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/weather-icons-classes.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/weather-icons-core.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/weather-icons-variables.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/weather-icons-wind.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/less/weather-icons-wind.min.less') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-beaufort.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-day.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-direction.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-misc.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-moon.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-moon-aliases.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-neutral.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-night.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-time.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-wind.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-wind-aliases.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/icon-classes/classes-wind-degrees.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/icon-variables/variables-beaufort.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/icon-variables/variables-day.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/icon-variables/variables-direction.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/icon-variables/variables-misc.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/icon-variables/variables-moon.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/icon-variables/variables-neutral.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/icon-variables/variables-night.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/icon-variables/variables-time.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/icon-variables/variables-wind-names.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/mappings/wi-forecast-io.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/mappings/wi-owm.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/mappings/wi-wmo4680.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/mappings/wi-yahoo.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/weather-icons.min.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/weather-icons.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/weather-icons-classes.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/weather-icons-core.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/weather-icons-variables.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/weather-icons-wind.min.scss') }}" rel="stylesheet">
-    <link href="{{ asset('css/icons/weather-icons/sass/weather-icons-wind.scss') }}" rel="stylesheet">
---}}
+    <!--pie chart-->
+    {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>--}}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+    {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />--}}
+    <style type="text/css">
+        .box{
+            width:800px;
+            margin:0 auto;
+        }
+    </style>
+    <script type="text/javascript">
 
+        var analytics = <?php echo $active;?>
 
-    <!-- External-->
-    {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--}}
+        google.charts.load('current', {'packages':['corechart']});
+
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart()
+        {
+            var data = google.visualization.arrayToDataTable(analytics);
+            var options = {
+                title : 'Percentage of active and inactive user'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('pie_chart'));
+            chart.draw(data, options);
+
+        }
+    </script>
 </head>
-{{--<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto" style="float: right">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item" >
-                                <a class="nav-link"  href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-</body>--}}
 <body>
 <!-- ============================================================== -->
 <!-- Preloader - style you can find in spinners.css -->

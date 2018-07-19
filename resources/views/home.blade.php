@@ -33,7 +33,7 @@
              <!-- Column -->
              <div class="col-md-6 col-lg-2 col-xlg-3">
                  <div class="card card-hover">
-                     <div class="box bg-cyan text-center">
+                     <div class="box bg-cyan text-center" style="width: 240px;">
                          <h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i></h1>
                          <h6 class="text-white">Dashboard</h6>
                      </div>
@@ -42,7 +42,7 @@
              <!-- Column -->
              <div class="col-md-6 col-lg-4 col-xlg-3">
                  <div class="card card-hover">
-                     <div class="box bg-success text-center">
+                     <div class="box bg-success text-center" style="width: 501px;">
                          <h1 class="font-light text-white"><i class="mdi mdi-chart-areaspline"></i></h1>
                          <h6 class="text-white">Charts</h6>
                      </div>
@@ -51,27 +51,30 @@
              <!-- Column -->
              <div class="col-md-6 col-lg-2 col-xlg-3">
                  <div class="card card-hover">
-                     <div class="box bg-warning text-center">
+                     <div class="box bg-warning text-center" style="width: 240px;">
                          <h1 class="font-light text-white"><i class="mdi mdi-account"></i></h1>
-                         <h6 class="text-white">Active User</h6>
+                         <h6 class="text-white">Active User <i class="text-white"><?php echo  '('. DB::table('users')->where('is_active','1')->count() .')'?></i></h6>
+
                      </div>
                  </div>
              </div>
              <!-- Column -->
              <div class="col-md-6 col-lg-2 col-xlg-3">
                  <div class="card card-hover">
-                     <div class="box bg-danger text-center">
+                     <div class="box bg-danger text-center" style="width: 242px;">
                          <h1 class="font-light text-white"><i class="mdi mdi-account"></i></h1>
-                         <h6 class="text-white">Inactive user</h6>
+                         <h6 class="text-white">Inactive user<i class="text-white"><?php echo  '(' .DB::table('users')->where('is_active','0')->count() .')'?></i></h6>
+
                      </div>
                  </div>
              </div>
              <!-- Column -->
              <div class="col-md-6 col-lg-2 col-xlg-3">
                  <div class="card card-hover">
-                     <div class="box bg-info text-center">
+                     <div class="box bg-info text-center" style="width: 241px;">
                          <h1 class="font-light text-white"><i class="mdi mdi-account"></i></h1>
-                         <h6 class="text-white">Registered user</h6>
+                         <h6 class="text-white">Registered user <i class="text-white"><?php echo '('. \App\admin\User::all()->count() .')'?></i></h6>
+
                      </div>
                  </div>
              </div>
@@ -82,13 +85,22 @@
              <div class="col-md-12">
                  <div class="card">
                      <div class="card-body">
-                         <h5 class="card-title">Pie Chart</h5>
-                         <div class="pie" style="height: 400px;"></div>
+                           <div class="panel panel-default">
+                               <div class="panel-heading">
+                                   <h3 class="panel-title">Percentage of Active and Inactive users</h3>
+                               </div>
+                               <div class="panel-body" align="center">
+                                   <div id="pie_chart" style="width:750px; height:450px;">
+                                   </div>
+                               </div>
+                           </div>
                      </div>
                  </div>
              </div>
 
          </div>
+
      </div>
 {{--</div>--}}
 @endsection
+

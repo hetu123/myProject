@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 class UserController extends BaseController
 {
     public function signup(Request $request){
+
         $username = $request->username;
         $first_name = $request->first_name;
         $last_name = $request->last_name;
@@ -25,6 +26,7 @@ class UserController extends BaseController
         $user->password =Hash::make($password);
         $user->phone_number=$phone_number;
         if($user->save()){
+            $success['token']=str_random(40);
             $success['user'] =  $user;
             return $this->sendResponse($success, 'User register successfully.');
         }
@@ -50,8 +52,4 @@ class UserController extends BaseController
         }
     }
 
-    public function login(Request $request){
-        $email = $request->email;
-        $password = $request->password;
-    }
 }

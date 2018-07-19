@@ -70,4 +70,5 @@ class APIController extends BaseController
 
         return $this->sendResponse($success, 'Product Detail send successfully.');
     }
+
 }
