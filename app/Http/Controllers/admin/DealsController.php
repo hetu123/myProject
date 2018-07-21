@@ -75,8 +75,31 @@ class DealsController extends Controller
         $deal->delete();
         return redirect('deals')->with('success','Information has been  deleted');
     }
-    public function hello(){
-        echo 'hii';
+    public function search(Request $request){
+
+        $query = deals::query()->select('deals.*');
+        if($request->has('title')) {
+            $query = $query->where('title','like','%'.$request->input('title').'%');
+        }
+        if($request->has('description')) {
+            $query = $query->where('description','like','%'.$request->input('description').'%');
+        }
+        if($request->has('short_description')) {
+            $query = $query->where('short_description','like','%'.$request->input('short_description').'%');
+        }
+        if($request->has('active')) {
+            $query = $query->where('is_active','like','%'.$request->input('active').'%');
+        }
+        if($request->has('populer')) {
+            $query = $query->where('is_populer','like','%'.$request->input('populer').'%');
+        }
+        if($request->has('favorite_cnt')) {
+            $query = $query->where('favorite_cnt','like','%'.$request->input('favorite_cnt').'%');
+        }
+
+        $deals = $query->get();
+        // dd($products);die;
+        return view('admin/deals.index',compact('deals'))->with('i',(\request()->input('page',1)-1)*5);
     }
 }
 

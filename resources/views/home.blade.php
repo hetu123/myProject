@@ -104,3 +104,25 @@
 {{--</div>--}}
 @endsection
 
+@section('content1')
+    <script type="text/javascript">
+
+        var analytics = <?php echo $active;?>
+
+        google.charts.load('current', {'packages':['corechart']});
+
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart()
+        {
+            var data = google.visualization.arrayToDataTable(analytics);
+            var options = {
+                title : 'Percentage of active and inactive user'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('pie_chart'));
+            chart.draw(data, options);
+
+        }
+    </script>
+@endsection

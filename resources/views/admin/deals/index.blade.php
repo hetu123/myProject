@@ -51,7 +51,67 @@
                 <th width="280px">Action</th>
             </tr>
 
+            <tr>
+                <td></td>
+                <td>
+                    <form method="get" action="{{url('dealsearch')}}" enctype="multipart/form-data">
+                        {!! Form::text('title', null,
+                                               array('required',
+                                                    'class'=>'form-control',
+                                                   //  'style'=>'width:100px',
+                                                    'placeholder'=>'Search for title...')) !!}
 
+                    </form>
+                </td>
+                <td>
+                    <form method="get" action="{{url('dealsearch')}}" enctype="multipart/form-data">
+                        {!! Form::text('description', null,
+                                               array('required',
+                                                    'class'=>'form-control',
+                                                   //  'style'=>'width:100px',
+                                                    'placeholder'=>'Search for title...')) !!}
+
+                    </form>
+                </td>
+                <td>
+                    <form method="get" action="{{url('dealsearch')}}" enctype="multipart/form-data">
+                        {!! Form::text('short_description', null,
+                                               array('required',
+                                                    'class'=>'form-control',
+                                                   //  'style'=>'width:100px',
+                                                    'placeholder'=>'Search for title...')) !!}
+
+                    </form>
+                </td>
+                <td>
+                    <form method="get" name="form" action="{{url('dealsearch')}}" enctype="multipart/form-data">
+                        <select name="active" onchange = "form.submit();">
+                            <option>Select Option</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </form>
+                </td>
+                <td>
+                    <form method="get" name="form1" action="{{url('dealsearch')}}" enctype="multipart/form-data">
+                        <select name="populer" onchange = "form1.submit();">
+                            <option>Select Option</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </form>
+                </td>
+                <td>
+                    <form method="get" action="{{url('dealsearch')}}" enctype="multipart/form-data">
+                        {!! Form::text('favorite_cnt', null,
+                                               array('required',
+                                                    'class'=>'form-control',
+                                                   //  'style'=>'width:100px',
+                                                    'placeholder'=>'Search for title...')) !!}
+
+                    </form>
+                </td>
+            </tr>
             @foreach ($deals as $deal)
 
                 <tr>

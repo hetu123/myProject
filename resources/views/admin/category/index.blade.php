@@ -20,6 +20,8 @@
 
         <div class="container-fluid">
 
+            <input type="text" class="daterange" />
+
             <div class="row">
                 <div class="col-md-12">
                     <div class="pull-left">
@@ -30,8 +32,6 @@
                     </div>
                 </div>
             </div>
-
-
             @if ($message = Session::get('success'))
                 <div class="alert alert-success">
                     <p>{{ $message }}</p>
@@ -51,18 +51,70 @@
                     <th width="280px">Action</th>
                 </tr>
 
+                <tr>
+                    <td></td>
+                    <td>
+                        <form method="get" action="{{url('search')}}" enctype="multipart/form-data">
+                            {!! Form::text('name', null,
+                                                   array('required',
+                                                        'class'=>'form-control',
+                                                       //  'style'=>'width:100px',
+                                                        'placeholder'=>'Search for a name...')) !!}
 
+                       </form>
+                    </td>
+                    <td>
+                        <form method="get" action="{{url('search')}}" enctype="multipart/form-data">
+                            {!! Form::text('description', null,
+                                                   array('required',
+                                                        'class'=>'form-control',
+                                                       //  'style'=>'width:100px',
+                                                        'placeholder'=>'Search for a description...')) !!}
+
+                        </form>
+                    </td>
+
+                    <td>
+                        <?php $categorys=\App\admin\Category::all(); ?>
+                        <form method="get" action="{{url('search')}}" enctype="multipart/form-data" name="form2">
+                            <select name="pid" onchange = "form2.submit();">
+                                <option>Select Category</option>
+                                <?php foreach ($categorys as $cat){?>
+                                <option value="<?php echo $cat->id ?>"><?php echo $cat->name ?></option>
+
+                                <?php }?>
+                            </select>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="get" name="form" action="{{url('search')}}" enctype="multipart/form-data">
+                              <select name="active" onchange = "form.submit();">
+                                  <option>Select Option</option>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                              </select>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="get" name="form1" action="{{url('search')}}" enctype="multipart/form-data">
+                            <select name="popular" onchange = "form1.submit();">
+                                <option>Select Option</option>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </form>
+                    </td>
+
+
+                </tr>
                 @foreach ($category as $cat)
 
                     <tr>
                         <td>{{ ++$i }}</td>
                         <td>{{ $cat->name }}</td>
                         <td>{{ $cat->description }}</td>
-                     {{--   $user = DB::table('category')->where('id', $cat['pid'] )->first()
-                     --}}
-                        @inject('catename','App\admin\Category')
-                        <td>{{$catename->select('name')->where('id','=',$cat->pid)->get()}}</td>
-                        {{--<td>{{ $cat->pid }}</td>--}}
+                        <?php   $name=DB::table('category')->select('name')->where('id','=',$cat->pid)->value('name');?>
+                        <td>{{ $name }}</td>
                         <td>{{ $cat->is_active }}</td>
                         <td>{{ $cat->is_populer }}</td>
                         <?php $image = $cat['image_icon'] ?>
@@ -70,11 +122,6 @@
 
                         <td>
                             <form onsubmit="return confirm('Do you really want to delete?');" action="{{action('admin\CategoryController@destroy', $cat['id'])}}" method="POST">
-
-
-                             {{--   <a class="btn btn-info" href="">Show</a>
---}}
-
                                 <a class="btn btn-info" href="{{action('admin\CategoryController@edit', $cat['id'])}}">Edit</a>
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -91,4 +138,7 @@
     </div>
 
 @endsection
+@section('content1')
 
+
+    @endsection

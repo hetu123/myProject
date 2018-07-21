@@ -50,32 +50,89 @@
                 <th>image_icon</th>
                 <th width="280px">Action</th>
             </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <form method="get" action="{{url('productsearch')}}" enctype="multipart/form-data">
+                        {!! Form::text('title', null,
+                                               array('required',
+                                                    'class'=>'form-control',
+                                                   //  'style'=>'width:100px',
+                                                    'placeholder'=>'Search for a name...')) !!}
 
+                    </form>
+                </td>
+                <td>
+                    <form method="get" action="{{url('productsearch')}}" enctype="multipart/form-data">
+                        {!! Form::text('description', null,
+                                               array('required',
+                                                    'class'=>'form-control',
+                                                   //  'style'=>'width:100px',
+                                                    'placeholder'=>'Search for a description...')) !!}
 
+                    </form>
+                </td>
+                <td>
+                    <?php $category=DB::table('category')->where('pid','<>', '0')->get(); ?>
+                    <form method="get" action="{{url('productsearch')}}" enctype="multipart/form-data" name="form2">
+                        <select name="category" onchange = "form2.submit();">
+                            <option>Select Category</option>
+                        <?php foreach ($category as $cat){?>
+                            <option value="<?php echo $cat->id ?>"><?php echo $cat->name ?></option>
+
+                        <?php }?>
+                        </select>
+                    </form>
+                </td>
+                <td>
+                    <form method="get" name="form" action="{{url('productsearch')}}" enctype="multipart/form-data">
+                        <select name="active" onchange = "form.submit();">
+                            <option>Select Option</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </form>
+                </td>
+                <td>
+                    <form method="get" name="form1" action="{{url('productsearch')}}" enctype="multipart/form-data">
+                        <select name="popular" onchange = "form1.submit();">
+                            <option>Select Option</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </form>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
             @foreach ($products as $product)
 
                 <tr>
                     <td>{{ ++$i }}</td>
                     <td>{{ $product->title }}</td>
                     <td>{{ $product->description }}</td>
-                   {{-- @inject('catename','App\admin\Category')
+                    <td>
+                    <?php
 
-                    @inject('product_id','App\admin\CategoryProduct')
-                    {{$product_id->select('category_id')->where('product_id','=',$product->id)->get()}}
-                    <td>{{$catename->select('name')->where('id','=',$product_id)->get()}}</td>--}}
-                    <td></td>
+                    $parent= \App\admin\CategoryProduct::select('*')->where(['product_id'=>$product->id])->get();
+
+                    foreach ($parent as $p){
+                        $name=DB::table('category')->select('name')->where('id','=',$p->category_id)->value('name');
+                        ?>
+                    {{ $name }}
+                        <br>
+                    <?php
+                    }
+                    ?>
+                    </td>
+
+
                     <td>{{ $product->is_active }}</td>
                     <td>{{ $product->is_populer }}</td>
-                  {{--  <td><img src="{{  asset('images/1530609893index.jpeg') }}"></td>--}}
                     <?php $image = $product['cover_image'] ?>
                     <td><img height="200" width="200" src="{{  asset('images/'.$image ) }}"></td>
                     <td>
                         <form onsubmit="return confirm('Do you really want to delete?');" action="{{action('admin\ProductController@destroy', $product['id'])}}" method="POST">
-
-
-                            {{--   <a class="btn btn-info" href="">Show</a>
---}}
-
                             <a class="btn btn-info" href="{{action('admin\ProductController@edit', $product['id'])}}">Edit</a>
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -86,10 +143,6 @@
 
             @endforeach
         </table>
-
-
-        {{-- {!! $category->links() !!}--}}
-
     </div>
 
 @endsection

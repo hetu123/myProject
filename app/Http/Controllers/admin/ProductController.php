@@ -17,6 +17,7 @@ class ProductController extends Controller
 {
     public function index(){
       $products = Product::latest()->paginate();
+
       return view('admin/product.index',compact('products'))->with('i',(\request()->input('page',1)-1)*5);
     }
 
@@ -61,7 +62,7 @@ class ProductController extends Controller
             $category_ids =$request->get('select_preferences');
             if(!empty($category_ids)){
                 foreach ($category_ids as $category_id){
-                    $productCategory = new CategoryProduct();
+                    $productCategory = new \App\admin\CategoryProduct();
                     $productCategory->product_id = $product->id;
                     $productCategory->category_id =   $category_id;
                     $productCategory->save();
@@ -119,5 +120,30 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->delete();
         return redirect('product')->with('success','Information has been  deleted');
+    }
+    public function search(Request $request){
+
+        $query = Product::query()->select('product.*','cp.product_id');
+        $query = $query->leftJoin('category_product AS cp', 'product.id', '=', 'cp.product_id');
+        if($request->has('title')) {
+            $query = $query->where('title','like','%'.$request->input('title').'%');
+        }
+        if($request->has('description')) {
+            $query = $query->where('description','like','%'.$request->input('description').'%');
+        }
+        if($request->has('category')) {
+
+            $query= $query->where('category_id',$request->category);
+         }
+        if($request->has('active')) {
+            $query = $query->where('is_active','like','%'.$request->input('active').'%');
+        }
+        if($request->has('popular')) {
+            $query = $query->where('is_populer','like','%'.$request->input('popular').'%');
+        }
+
+        $products = $query->get();
+       // dd($products);die;
+        return view('admin/product.index',compact('products'))->with('i',(\request()->input('page',1)-1)*5);
     }
 }

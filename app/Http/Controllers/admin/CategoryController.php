@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\admin\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -89,5 +90,29 @@ class CategoryController extends Controller
         $passport->delete();
         return redirect('addcategory')->with('success','Information has been  deleted');
     }
+    public function search(Request $request){
+     // echo $request->input('name');die;
+        $query = Category::query();
 
+
+        if($request->has('name')) {
+            $query = $query->where('name','like','%'.$request->input('name').'%');
+        }
+        if($request->has('description')) {
+            $query = $query->where('description','like','%'.$request->input('description').'%');
+        }
+        if($request->has('pid')) {
+            $query = $query->where('pid',$request->pid);
+        }
+        if($request->has('active')) {
+            $query = $query->where('is_active','like','%'.$request->input('active').'%');
+        }
+        if($request->has('popular')) {
+            $query = $query->where('is_populer','like','%'.$request->input('popular').'%');
+        }
+      //  echo $query->toSql();die;
+        $category = $query->get();
+       /*dd($category);die;*/
+        return view('admin/category.index',compact('category'))->with('i',(\request()->input('page',1)-1)*5);
+    }
 }

@@ -148,6 +148,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
+        'Collective\Html\HtmlServiceProvider',
         /*
          * Package Service Providers...
          */Maatwebsite\Excel\ExcelServiceProvider::class,
@@ -210,6 +211,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Form' => 'Collective\Html\FormFacade',
+        'Html' => 'Collective\Html\HtmlFacade',
     ],
 
 ];

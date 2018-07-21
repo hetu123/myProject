@@ -52,7 +52,77 @@
                 <th width="280px">Action</th>
             </tr>
 
+            <tr>
+                <td></td>
+                <td>
+                    <form method="get" action="{{url('usersearch')}}" enctype="multipart/form-data">
+                        {!! Form::text('username', null,
+                                               array('required',
+                                                    'class'=>'form-control',
+                                                   //  'style'=>'width:100px',
+                                                    'placeholder'=>'Search for a username...')) !!}
 
+                    </form>
+                </td>
+                <td>
+                    <form method="get" action="{{url('usersearch')}}" enctype="multipart/form-data">
+                        {!! Form::text('first_name', null,
+                                               array('required',
+                                                    'class'=>'form-control',
+                                                   //  'style'=>'width:100px',
+                                                    'placeholder'=>'Search for a username...')) !!}
+
+                    </form>
+                </td>
+                <td>
+                    <form method="get" action="{{url('usersearch')}}" enctype="multipart/form-data">
+                        {!! Form::text('last_name', null,
+                                               array('required',
+                                                    'class'=>'form-control',
+                                                   //  'style'=>'width:100px',
+                                                    'placeholder'=>'Search for a username...')) !!}
+
+                    </form>
+                </td>
+                <td>
+                    <form method="get" action="{{url('usersearch')}}" enctype="multipart/form-data">
+                        {!! Form::text('email', null,
+                                               array('required',
+                                                    'class'=>'form-control',
+                                                   //  'style'=>'width:100px',
+                                                    'placeholder'=>'Search for a username...')) !!}
+
+                    </form>
+                </td>
+                <td>
+                    <form method="get" action="{{url('usersearch')}}" enctype="multipart/form-data">
+                        {!! Form::text('phone_number', null,
+                                               array('required',
+                                                    'class'=>'form-control',
+                                                   //  'style'=>'width:100px',
+                                                    'placeholder'=>'Search for a username...')) !!}
+
+                    </form>
+                </td>
+                <td>
+                    <form method="get" name="form" action="{{url('usersearch')}}" enctype="multipart/form-data">
+                        <select name="active" onchange = "form.submit();">
+                            <option>Select Option</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </form>
+                </td>
+               {{-- <td>
+                    <form method="get" name="form1" action="{{url('productsearch')}}" enctype="multipart/form-data">
+                        <select name="verified" onchange = "form1.submit();">
+                            <option>Select Option</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </form>
+                </td>--}}
+            </tr>
             @foreach ($users as $user)
 
                 <tr>

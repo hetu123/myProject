@@ -16,7 +16,8 @@
         "psr/log": "^1.0",
         "symfony/event-dispatcher": "^4.1",
         "symfony/lock": "^4.1",
-        "unisharp/laravel-ckeditor": "^4.7"
+        "unisharp/laravel-ckeditor": "^4.7",
+        "laravelcollective/html": "~5.0"
     },
     "require-dev": {
         "filp/whoops": "^2.0",

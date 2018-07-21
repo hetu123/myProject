@@ -5,67 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <!-- Image-->
     <link rel="icon" type="image/png" sizes="16x16"  href="{{ asset('assets/images/favicon.png') }}" >
-
-
-
-
     <link href="{{ asset('assets/libs/toastr/build/toastr.min.css') }}" rel="stylesheet" type="text/css" >
-
     <link href="{{ asset('dist/css/style.min.css') }}" rel="stylesheet" type="text/css" >
-
-    <!-- Custom CSS -->
-      <link href="{{ asset('assets/libs/flot/css/float-chart.css') }}" rel="stylesheet" type="text/css" >
-    <!-- Custom CSS -->
-      <link href="{{ asset('dist/css/style.min.css') }}" rel="stylesheet" type="text/css" >
-
-    <!--External -->
+    <link href="{{ asset('assets/libs/flot/css/float-chart.css') }}" rel="stylesheet" type="text/css" >
+    <link href="{{ asset('dist/css/style.min.css') }}" rel="stylesheet" type="text/css" >
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-
-
-    <!-- Styles -->
-    <!-- Custom CSS -->
     <link href="{{ asset('assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
-    <!-- Custom CSS -->
     <link href="{{ asset('dist/css/style.min.css" rel="stylesheet') }}" rel="stylesheet">
-
-    <!--pie chart-->
-    {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>--}}
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-    {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />--}}
+    {{--<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css" />--}}
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
     <style type="text/css">
         .box{
             width:800px;
             margin:0 auto;
         }
-    </style>
-    <script type="text/javascript">
-
-        var analytics = <?php echo $active;?>
-
-        google.charts.load('current', {'packages':['corechart']});
-
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart()
-        {
-            var data = google.visualization.arrayToDataTable(analytics);
-            var options = {
-                title : 'Percentage of active and inactive user'
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('pie_chart'));
-            chart.draw(data, options);
-
+        table{
+            margin-top: 10px;
         }
-    </script>
+        table tr th{
+            background-color:gainsboro;
+            color:black;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+    @yield('content1')
+
 </head>
 
 <body>
@@ -225,20 +195,17 @@
 <!-- All Jquery -->
 <!-- ============================================================== -->
 <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap tether Core JavaScript -->
 <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
 <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
 <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
-<!--Wave Effects -->
+
 <script src="../../dist/js/waves.js"></script>
-<!--Menu sidebar -->
+
 <script src="../../dist/js/sidebarmenu.js"></script>
-<!--Custom JavaScript -->
+
 <script src="../../dist/js/custom.min.js"></script>
-<!--This page JavaScript -->
-<!-- <script src="../../dist/js/pages/dashboards/dashboard1.js"></script> -->
-<!-- Charts js Files -->
+
 <script src="../../assets/libs/flot/excanvas.js"></script>
 <script src="../../assets/libs/flot/jquery.flot.js"></script>
 <script src="../../assets/libs/flot/jquery.flot.pie.js"></script>
@@ -247,6 +214,12 @@
 <script src="../../assets/libs/flot/jquery.flot.crosshair.js"></script>
 <script src="../../assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
 <script src="../../dist/js/pages/chart/chart-page-init.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<script type="text/javascript">
 
+    $('.daterange').daterangepicker();
+
+</script>
 </body>
 </html>

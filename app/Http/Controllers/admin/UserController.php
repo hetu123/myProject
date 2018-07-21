@@ -75,5 +75,40 @@ class UserController extends Controller
         $csv_data = array_slice($data, 0, 2);
         return view('import_fields', compact('csv_data'));
     }
+    public function destroy($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return redirect('user')->with('success','Information has been  deleted');
+    }
 
+    public function search(Request $request){
+//      /  echo $request->username;die;
+
+        $query = User::query()->select('users.*');
+        if($request->has('username')) {
+            $query = $query->where('username','like','%'.$request->input('username').'%');
+        }
+        if($request->has('first_name')) {
+            $query = $query->where('first_name','like','%'.$request->input('first_name').'%');
+        }
+        if($request->has('last_name')) {
+            $query = $query->where('last_name','like','%'.$request->input('last_name').'%');
+        }
+        if($request->has('email')) {
+            $query = $query->where('email','like','%'.$request->input('email').'%');
+        }
+        if($request->has('phone_number')) {
+            $query = $query->where('phone_number','like','%'.$request->input('phone_number').'%');
+        }
+        if($request->has('active')) {
+            $query = $query->where('is_active','like','%'.$request->input('active').'%');
+        }
+       /* if($request->has('verified')) {
+            $query = $query->where('verified','like','%'.$request->input('verified').'%');
+        }*/
+        $users = $query->get();
+        // dd($products);die;
+        return view('admin/User.index',compact('users'))->with('i',(\request()->input('page',1)-1)*5);
+    }
 }
