@@ -20,7 +20,13 @@
     </div>
 
     <div class="container-fluid">
-
+        <div>
+            <h4>Date range</h4>
+            <form method="get" action="{{url('usersearch')}}" enctype="multipart/form-data">
+                <input type="text" class="daterange" name="range"/>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="pull-left">
@@ -49,6 +55,7 @@
                 <th>email</th>
                 <th>Phonenumber</th>
                 <th>is_active</th>
+                <th>Created date</th>
                 <th width="280px">Action</th>
             </tr>
 
@@ -113,15 +120,20 @@
                         </select>
                     </form>
                 </td>
-               {{-- <td>
-                    <form method="get" name="form1" action="{{url('productsearch')}}" enctype="multipart/form-data">
-                        <select name="verified" onchange = "form1.submit();">
-                            <option>Select Option</option>
-                            <option value="1">Yes</option>
-                            <option value="0">No</option>
-                        </select>
+                <td>
+                    <form method='get' enctype='multipart/form-data' id='formId' action="{{url('usersearch')}}">
+                        <div class="form-group">
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input class="date form-control" type="text" id="date1" name="created_at" placeholder="seleact date">
+                                <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                            </div>
+                        </div>
                     </form>
-                </td>--}}
+                </td>
+                <td></td>
+
             </tr>
             @foreach ($users as $user)
 
@@ -136,7 +148,7 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->phone_number }}</td>
                     <td>{{ $user->is_active  }}</td>
-
+                    <td>{{ $user->created_at }}</td>
 
                     <td>
                         <form onsubmit="return confirm('Do you really want to delete?');" action="{{action('admin\UserController@destroy', $user['id'])}}" method="POST">

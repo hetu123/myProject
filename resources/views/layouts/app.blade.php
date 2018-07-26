@@ -19,6 +19,9 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     {{--<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css" />--}}
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+
+
     <style type="text/css">
         .box{
             width:800px;
@@ -220,6 +223,24 @@
 
     $('.daterange').daterangepicker();
 
+</script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+
+<script type="text/javascript">
+
+    $('.date').datepicker({
+
+        format: 'mm/dd/yyyy',
+        autoclose: true,
+
+    });
+    $('#date1').change(function(){
+        console.log('Submiting form');
+        $('#formId').submit();
+    });
 </script>
 </body>
 </html>

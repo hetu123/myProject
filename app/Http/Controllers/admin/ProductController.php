@@ -141,7 +141,26 @@ class ProductController extends Controller
         if($request->has('popular')) {
             $query = $query->where('is_populer','like','%'.$request->input('popular').'%');
         }
+        if($request->has('range')){
+            $date_range=$request->input('range');
+            $date=explode("-",$date_range);
+            $created_at = $date[0];
+            $update_at = $date[1];
+            $c_time = strtotime($created_at);
+            $u_time = strtotime($update_at);
+            $from=date('Y-m-d H:i:s', $c_time);
 
+            $to=date('Y-m-d H:i:s', $u_time);
+            //  $query = $query->where('created_at','>=',$from)->where('created_at','<=',$to);
+            $query=$query->whereBetween('product.created_at',[$from,$to]);
+        }
+        if($request->has('created_at')){
+
+            $c_time = strtotime($request->created_at);
+            $date = date('Y-m-d',$c_time).' 00:00:00';
+            $query = $query->whereDate('product.created_at',$date);
+
+        }
         $products = $query->get();
        // dd($products);die;
         return view('admin/product.index',compact('products'))->with('i',(\request()->input('page',1)-1)*5);

@@ -19,7 +19,13 @@
     </div>
 
     <div class="container-fluid">
-
+        <div>
+            <h4>Date range</h4>
+            <form method="get" action="{{url('dealsearch')}}" enctype="multipart/form-data">
+                <input type="text" class="daterange" name="range"/>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="pull-left">
@@ -48,6 +54,7 @@
                 <th>Is_active</th>
                 <th>Is_Populer</th>
                 <th>Favorite count</th>
+                <th>Created date</th>
                 <th width="280px">Action</th>
             </tr>
 
@@ -111,6 +118,19 @@
 
                     </form>
                 </td>
+                <td>
+                    <form method='get' enctype='multipart/form-data' id='formId' action="{{url('dealsearch')}}">
+                        <div class="form-group">
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input class="date form-control" type="text" id="date1" name="created_at" placeholder="seleact date">
+                                <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                            </div>
+                        </div>
+                    </form>
+                </td>
+                <td></td>
             </tr>
             @foreach ($deals as $deal)
 
@@ -122,13 +142,9 @@
                     <td>{{ $deal->is_active }}</td>
                     <td>{{ $deal->is_populer }}</td>
                     <td>{{ $deal->favorite_cnt }}</td>
+                    <td>{{ $deal->created_at }}</td>
                   <td>
                         <form onsubmit="return confirm('Do you really want to delete?');" action="{{action('admin\DealsController@destroy', $deal['id'])}}" method="POST">
-
-
-                            {{--   <a class="btn btn-info" href="">Show</a>
---}}
-
                             <a class="btn btn-info" href="{{action('admin\DealsController@edit', $deal['id'])}}">Edit</a>
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -138,9 +154,6 @@
                 </tr>
             @endforeach
         </table>
-
-
-        {{-- {!! $category->links() !!}--}}
 
     </div>
 

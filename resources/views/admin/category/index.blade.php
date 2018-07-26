@@ -19,8 +19,13 @@
     </div>
 
         <div class="container-fluid">
-
-            <input type="text" class="daterange" />
+            <div>
+                <h4>Date range</h4>
+                <form method="get" action="{{url('search')}}" enctype="multipart/form-data">
+                    <input type="text" class="daterange" name="range"/>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+            </div>
 
             <div class="row">
                 <div class="col-md-12">
@@ -47,7 +52,9 @@
                     <th>Parent Category</th>
                     <th>Is_active</th>
                     <th>Is_Populer</th>
+                    <th>Created date</th>
                     <th>image_icon</th>
+
                     <th width="280px">Action</th>
                 </tr>
 
@@ -105,7 +112,20 @@
                         </form>
                     </td>
 
-
+                    <td>
+                        <form method='get' enctype='multipart/form-data' id='formId' action="{{url('search')}}">
+                            <div class="form-group">
+                                <div class='input-group date' id='datetimepicker1'>
+                                    <input class="date form-control" type="text" id="date1" name="created_at" placeholder="seleact date">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </form>
+                        </td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 @foreach ($category as $cat)
 
@@ -117,6 +137,7 @@
                         <td>{{ $name }}</td>
                         <td>{{ $cat->is_active }}</td>
                         <td>{{ $cat->is_populer }}</td>
+                        <td>{{ $cat->created_at }}</td>
                         <?php $image = $cat['image_icon'] ?>
                         <td><img height="200" width="200" src="{{  asset('images/'.$image ) }}"></td>
 

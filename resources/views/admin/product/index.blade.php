@@ -19,6 +19,13 @@
     </div>
 
     <div class="container-fluid">
+        <div>
+            <h4>Date range</h4>
+            <form method="get" action="{{url('productsearch')}}" enctype="multipart/form-data">
+                <input type="text" class="daterange" name="range"/>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
 
         <div class="row">
             <div class="col-md-12">
@@ -47,7 +54,9 @@
                 <th>Category</th>
                 <th>Is_active</th>
                 <th>Is_Populer</th>
+                <th>Created date</th>
                 <th>image_icon</th>
+
                 <th width="280px">Action</th>
             </tr>
             <tr>
@@ -102,7 +111,19 @@
                         </select>
                     </form>
                 </td>
-                <td></td>
+
+                <td>
+                    <form method='get' enctype='multipart/form-data' id='formId' action="{{url('productsearch')}}">
+                        <div class="form-group">
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input class="date form-control" type="text" id="date1" name="created_at" placeholder="seleact date">
+                                <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                            </div>
+                        </div>
+                    </form>
+                </td>
                 <td></td>
             </tr>
             @foreach ($products as $product)
@@ -129,8 +150,11 @@
 
                     <td>{{ $product->is_active }}</td>
                     <td>{{ $product->is_populer }}</td>
+                    <td>{{ $product->created_at }}</td>
                     <?php $image = $product['cover_image'] ?>
+
                     <td><img height="200" width="200" src="{{  asset('images/'.$image ) }}"></td>
+
                     <td>
                         <form onsubmit="return confirm('Do you really want to delete?');" action="{{action('admin\ProductController@destroy', $product['id'])}}" method="POST">
                             <a class="btn btn-info" href="{{action('admin\ProductController@edit', $product['id'])}}">Edit</a>
